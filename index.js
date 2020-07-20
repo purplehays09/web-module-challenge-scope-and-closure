@@ -28,9 +28,15 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ *     Counter 1 returns the function and not the variable and assigns that function to 'counter 1', thus it can be reused and iterated upon later. Counter 2 just returns the value of the count variable. 
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * counter 1 uses a closure since it is returning a function and updating a variable
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ * Counter 1 would be better if you want to reuse the function and continually update the variable in later uses. Counte two is stagnant and is only good to update the variable so if you wanted to only update the variable in a one-off situation with no plans to reuse, counter 2 is probably better.
  *
 */
 
@@ -56,9 +62,9 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+const inning = function(){
 
-    /*Code Here*/
+    return Math.floor(Math.random() * 3)
 
 }
 
@@ -76,11 +82,22 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+const finalScore = function(func,num){
 
-  /*Code Here*/
+  let score = {
+    "Home": 0,
+    "Away":0
+  }
+  for (let i = 0; i < num; i++){
+    score.Home += func()
+    score.Away += func()
+  }
+
+  return score
 
 }
+
+console.log(finalScore(inning,9))
 
 /* Task 4: 
 
@@ -103,8 +120,10 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(funcInning,funcScore,num) {
+  for(let i = 0; i< num;i++){
+    
+  }
 }
 
 
