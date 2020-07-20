@@ -64,7 +64,7 @@ Write a function called `inning` that returns a random number of points that a t
 
 const inning = function(){
 
-    return Math.floor(Math.random() * 3);
+  return Math.floor(Math.random() * 3);
 
 }
 
