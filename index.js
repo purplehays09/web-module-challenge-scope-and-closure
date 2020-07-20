@@ -64,7 +64,7 @@ Write a function called `inning` that returns a random number of points that a t
 
 const inning = function(){
 
-    return Math.floor(Math.random() * 3)
+    return Math.floor(Math.random() * 3);
 
 }
 
@@ -87,17 +87,20 @@ const finalScore = function(func,num){
   let score = {
     "Home": 0,
     "Away":0
-  }
+  };
+
   for (let i = 0; i < num; i++){
-    score.Home += func()
-    score.Away += func()
+    score.Home += func();
+    score.Away += func();
   }
 
-  return score
+  return score;
 
 }
 
-console.log(finalScore(inning,9))
+console.log(finalScore(inning,9));
+
+
 
 /* Task 4: 
 
@@ -121,9 +124,19 @@ Final Score: awayTeam - homeTeam */
 
 
 function scoreboard(funcInning,funcScore,num) {
-  for(let i = 0; i< num;i++){
-    
+  let total = {
+    "Home":0,
+    "Away":0
+  };
+
+  for(let i = 1; i <= num;i++){
+    let score = funcScore(funcInning,1);
+    total.Home += score.Home;
+    total.Away += score.Away;
+    console.log(`Inning ${i}: Home Score = ${score.Home} Away Score is ${score.Away}`);
   }
+  return `Final Score: Home = ${total.Home} Away = ${total.Away}`;
 }
 
+console.log(scoreboard(inning,finalScore,9));
 
